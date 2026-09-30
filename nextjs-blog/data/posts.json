@@ -1,0 +1,32 @@
+[
+    {
+      "title": "CSS Styling in Next.js",
+      "date": "2026-09-14",
+      "contentHtml": "<p>Next.js provides many ways to style your pages:</p><ul><li><strong>CSS Modules:</strong> allow you to locally scope CSS at the component-level by automatically creating unique class names. This allows you to use the same CSS class name in different files without worrying about class name collisions.</li><li><strong>global.css:</strong> CSS Modules are useful for component-level styles. But if you want some CSS to be loaded by every page, Next.js has support for that as well. The default export of <code>_app.js</code> is a top-level React component that wraps all the pages in your application. You can use this component to keep state when navigating between pages, or to add global styles. You can place the global CSS file anywhere and use any name. In Next.js, you can add global CSS files by importing them from <code>pages/_app.js</code>. You cannot import global CSS anywhere else.</li></ul><p>In addition to CSS modules, you can style your Next.js application in a variety of ways, including:</p><ul><li><strong>Sass</strong> which allows you to import <code>.css</code> and <code>.scss</code> files.</li><li>PostCSS libraries like <strong>Tailwind CSS</strong>.</li><li><strong>CSS-in-JS libraries</strong> such as styled-jsx, styled-components, and emotion.</li></ul>",
+      "id": 1
+    },
+    {
+      "title": "Dynamic Routes: Page Path Depends on External Data",
+      "date": "2026-09-15",
+      "contentHtml": "<p>Next.js allows you to statically generate (pre-render) pages with paths that depend on external data. This enables <strong>dynamic URLs</strong> in Next.js.</p><h2>How to Statically Generate Pages with Dynamic Routes</h2><p>If you want to statically generate a page at a path such as <code>/posts/[id]</code>, where <strong>id</strong> can be dynamic, you can:</p><ul><li>Create a page at <code>/pages/posts/[id].js</code>, where <code>[id]</code> matches the name of the <strong>Markdown file</strong> under the top-level <code>posts</code> directory.</li><li>Use <strong>getStaticPaths</strong> to return an array of possible values for <code>id</code>.</li><li>Use <strong>getStaticProps</strong> to fetch the data needed for each post based on its <code>id</code>.</li></ul><p>During the production build, Next.js uses this information to:</p><ul><li>Fetch external data.</li><li>Generate the pages for each available post.</li><li>Create static pages with paths such as <code>/posts/first-post</code> or <code>/posts/second-post</code>.</li></ul>",
+      "id": 2
+    },
+    {
+      "title": "Image Component and Image Optimization",
+      "date": "2026-09-13",
+      "contentHtml": "<p>Next.js can serve <strong>static assets</strong>, like images, under the <strong>top-level public directory</strong>. Files inside <code>public</code> can be referenced from the root of the application similar to <code>pages</code>.</p><p><strong>next/image</strong> is an extension of the HTML <strong>img</strong> element, evolved for the modern web.</p><ul><li>Next.js also has support for <strong>Image Optimization by default</strong>. This allows for resizing, optimizing, and serving images in modern formats like WebP when the browser supports it. This avoids shipping large images to devices with a smaller viewport. It also allows Next.js to automatically adopt future image formats and serve them to browsers that support those formats.</li><li><strong>Automatic Image Optimization</strong> works with any image source. Even if the image is hosted by an external data source, like a CMS, it can still be optimized.</li><li>Instead of optimizing images at build time, Next.js <strong>optimizes images on-demand</strong>, as users request them. Unlike static site generators and static-only solutions, your build times aren't increased, whether shipping 10 images or 10 million images.</li><li>Images are lazy loaded by default. That means your page speed isn't penalized for images outside the viewport. Images load as they are scrolled into viewport.</li><li>Images are always rendered in such a way as to <strong>avoid Cumulative Layout Shift</strong>, a Core Web Vital that Google is going to use in search ranking.</li></ul>",
+      "id": 3
+    },
+    {
+      "title": "Two Forms of Pre-rendering",
+      "date": "2020-01-01",
+      "contentHtml": "<p>Next.js has two forms of pre-rendering: <strong>Static Generation</strong> and <strong>Server-side Rendering</strong>. The difference is in <strong>when</strong> it generates the HTML for a page.</p><ul><li><strong>Static Generation</strong> is the pre-rendering method that generates the HTML at <strong>build time</strong>. The pre-rendered HTML is then <em>reused</em> on each request.</li><li><strong>Server-side Rendering</strong> is the pre-rendering method that generates the HTML on <strong>each request</strong>.</li></ul><p>Importantly, Next.js lets you <strong>choose</strong> which pre-rendering form to use for each page. You can create a \"hybrid\" Next.js app by using Static Generation for most pages and using Server-side Rendering for others.</p>",
+      "id": 4
+    },
+    {
+      "title": "When to Use Static Generation v.s. Server-side Rendering",
+      "date": "2020-01-02",
+      "contentHtml": "<p>We recommend using <strong>Static Generation</strong> (with and without data) whenever possible because your page can be built once and served by a CDN, which makes it much faster than having a server render the page on every request.</p><p>You can use Static Generation for many types of pages, including:</p><ul><li>Marketing pages</li><li>Blog posts</li><li>E-commerce product listings</li><li>Help and documentation</li></ul><p>You should ask yourself: <em>\"Can I pre-render this page <strong>ahead</strong> of a user's request?\"</em> If the answer is yes, then you should choose Static Generation.</p><p>On the other hand, Static Generation is <strong>not</strong> a good idea if you cannot pre-render a page ahead of a user's request. Maybe your page shows frequently updated data, and the page content changes on every request.</p><p>In that case, you can use <strong>Server-Side Rendering</strong>. It will be slower, but the pre-rendered page will always be up-to-date. Or you can skip pre-rendering and use client-side JavaScript to populate data.</p>",
+      "id": 5
+    }
+  ]

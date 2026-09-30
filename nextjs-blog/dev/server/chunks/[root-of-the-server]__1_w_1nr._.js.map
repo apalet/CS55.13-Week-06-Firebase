@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 16, "column": 0}, "map": {"version":3,"sources":["file:///Users/andreepalet/Desktop/paleta/SRJC/2026%20Fall/Server%20Side%20WebDev/week05/CS55.13-Week-05-Next.js-Tutorial3/pages/api/hello.js"],"sourcesContent":["// creating a simple API endpoint\nexport default function handler(req, res) {\n  res.status(200).json({ text: 'Hello' });\n}"],"names":["handler","req","res","status","json","text"],"mappings":"AAAA,iCAAiC;;;;;AAClB,SAASA,QAAQC,GAAG,EAAEC,GAAG;IACtCA,IAAIC,MAAM,CAAC,KAAKC,IAAI,CAAC;QAAEC,MAAM;IAAQ;AACvC"}}]
+}
